@@ -1,0 +1,43 @@
+# Aurifarma · configuración del servidor (cPanel / LiteSpeed)
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+
+# Forzar HTTPS y la versión con www (sin tocar la validación del certificado SSL)
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteCond %{HTTP_HOST} ^(www\.)?aurifarma\.com$ [NC]
+RewriteCond %{SERVER_PORT} 80 [OR]
+RewriteCond %{HTTP_HOST} ^aurifarma\.com$ [NC]
+RewriteRule ^(.*)$ https://www.aurifarma.com/$1 [R=301,L]
+
+# Páginas del sitio anterior → sección equivalente del sitio nuevo
+RewriteRule ^(index|index-anterior)\.php$ https://www.aurifarma.com/ [R=301,L]
+RewriteRule ^home\.html$ https://www.aurifarma.com/ [R=301,L]
+RewriteRule ^about\.php$ https://www.aurifarma.com/#nosotros [R=301,L,NE]
+RewriteRule ^productos\.php$ https://www.aurifarma.com/#productos [R=301,L,NE]
+RewriteRule ^contacto\.php$ https://www.aurifarma.com/#contacto [R=301,L,NE]
+RewriteRule ^curso-auriculoterapia\.php$ https://www.aurifarma.com/#formacion [R=301,L,NE]
+RewriteRule ^doctor-francisco-rojas\.php$ https://www.aurifarma.com/#doctor [R=301,L,NE]
+
+# Scripts del sitio anterior (formulario de correo y plantillas): desactivados para evitar spam
+RewriteRule ^(process|phpmailer|stats|header|header-landign|footer)\.php$ - [G,L]
+
+# Cabeceras de seguridad
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+</IfModule>
+
+# Compresión y caché
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/xml application/javascript image/svg+xml
+</IfModule>
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+</IfModule>

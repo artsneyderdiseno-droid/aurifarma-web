@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Página no encontrada | Aurifarma</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0f1e2d">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400&family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --navy: #0f1e2d; --ink: #2a4055; --cyan: #27bce6; --teal: #39a8c1; --mist: #e8f6fb; --wa: #25d366; }
+  * { box-sizing: border-box; margin: 0; }
+  body { min-height: 100vh; display: grid; place-items: center; padding: 32px 16px; background: radial-gradient(circle at 50% 30%, var(--mist), #fff 60%); color: var(--ink); font: 500 1rem/1.6 "Manrope", system-ui, sans-serif; text-align: center; }
+  main { max-width: 520px; }
+  img { width: 120px; height: auto; margin-bottom: 18px; animation: float 6s ease-in-out infinite; }
+  .code { font: 400 clamp(4rem, 18vw, 7rem)/1 "Fraunces", Georgia, serif; background: linear-gradient(120deg, #0097c9, var(--cyan), var(--teal)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  h1 { margin: 10px 0 8px; font: 400 clamp(1.5rem, 5vw, 2rem)/1.2 "Fraunces", Georgia, serif; color: var(--navy); }
+  p { color: #5a6b7b; }
+  .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
+  a.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 26px; border-radius: 999px; font-weight: 700; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; transition: transform .25s, box-shadow .25s; }
+  a.btn:hover { transform: translateY(-2px); }
+  .btn--primary { background: var(--navy); color: #fff; box-shadow: 0 14px 30px -12px rgba(15, 30, 45, .55); }
+  .btn--wa { background: var(--wa); color: #06301a; }
+  a.btn:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+  @keyframes float { 50% { transform: translateY(-8px); } }
+  @media (prefers-reduced-motion: reduce) { img { animation: none; } a.btn { transition: none; } }
+</style>
+</head>
+<body>
+  <main>
+    <img src="/favicon.png" alt="" width="192" height="192">
+    <p class="code" aria-hidden="true">404</p>
+    <h1>No encontramos esta página</h1>
+    <p>Es posible que la dirección haya cambiado o que ya no exista. Te invitamos a visitar nuestra página principal o a escribirnos.</p>
+    <div class="actions">
+      <a class="btn btn--primary" href="/">Ir al inicio</a>
+      <a class="btn btn--wa" href="https://wa.me/573124499613?text=Hola%20Aurifarma%2C%20quisiera%20recibir%20informaci%C3%B3n." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+  </main>
+</body>
+</html>
